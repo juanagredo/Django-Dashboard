@@ -1,0 +1,24 @@
+<div class="grid grid-cols-2 gap-4">
+    <!-- Columna de mensajes -->
+    <div class="bg-white rounded shadow p-4">
+        <h2 class="font-semibold mb-2">CONVERSATION</h2>
+        {% for i in "123" %}
+        <div class="border-b py-2 flex justify-between items-center">
+            <div>
+                <p class="text-sm font-semibold">Board Task Update</p>
+                <p class="text-xs text-gray-400">Lorem ipsum...</p>
+            </div>
+            <button class="text-sm text-purple-500">REPLY NOW</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Columna de actividad -->
+    <div class="bg-white rounded shadow p-4">
+        <h2 class="font-semibold mb-2">MANAGE ACTIVITY</h2>
+        <ul class="space-y-2">
+            <li class="text-sm">📄 Invoice for assessment posted</li>
+            <li class="text-sm">✅ ARC completed for ABC Corp</li>
+        </ul>
+    </div>
+</div>
