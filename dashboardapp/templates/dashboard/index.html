@@ -1,17 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'dashboard/base.html' %}
 
 {% block content %}
-<div class="p-6 lg:p-12 bg-white max-w-6xl mx-auto rounded-lg shadow-md">
-    {% include 'dashboard/components/top-tabs.html' %}
-    {% include 'dashboard/components/alerts-carousel.html' %}
-    {% include 'dashboard/components/bank-balances.html' %}
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-        <div class="md:col-span-2">
-            {% include 'dashboard/components/conversations.html' %}
+    <div class="relative z-10 p-6 lg:p-2 max-w-6xl mx-auto">
+
+        {% include 'dashboard/components/top-tabs.html' %}
+        {% include 'dashboard/components/alerts-carousel.html' %}
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-4 ">
+            <div class="md:col-span-3 rounded-sm gap-x-2 gap-y-4">
+                {% include 'dashboard/components/bank-balances.html' %}
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% include 'dashboard/components/conversations.html' %}
+                    {% include 'dashboard/components/activities.html' %}
+                </div>
+            </div>
+            <div>
+                {% include 'dashboard/components/todo-list.html' %}
+            </div>
+
         </div>
-        <div>
-            {% include 'dashboard/components/todo-list.html' %}
-        </div>
-    </div>
-</div>
-{% endblock %}
+    {% endblock %}

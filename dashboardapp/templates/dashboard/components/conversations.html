@@ -1,24 +1,62 @@
-<div class="grid grid-cols-2 gap-4">
-    <!-- Columna de mensajes -->
-    <div class="bg-white rounded shadow p-4">
-        <h2 class="font-semibold mb-2">CONVERSATION</h2>
-        {% for i in "123" %}
-        <div class="border-b py-2 flex justify-between items-center">
-            <div>
-                <p class="text-sm font-semibold">Board Task Update</p>
-                <p class="text-xs text-gray-400">Lorem ipsum...</p>
-            </div>
-            <button class="text-sm text-purple-500">REPLY NOW</button>
+<div class="bg-white rounded p-4">
+    <div class="overflow-x-auto w-full max-w-6xl mx-auto">
+        <!-- Cabecera con proporciones y separación -->
+        <div class="grid grid-cols-[5fr_2fr_2fr_3fr] gap-x-4 text-sm text-base-content font-semibold pb-2 border-b border-base-300">
+            <div>Conversation</div>
+            <div class="text-center">Unread</div>
+            <div class="text-center">Related Task</div>
+            <div>Actions</div>
         </div>
-        {% endfor %}
-    </div>
 
-    <!-- Columna de actividad -->
-    <div class="bg-white rounded shadow p-4">
-        <h2 class="font-semibold mb-2">MANAGE ACTIVITY</h2>
-        <ul class="space-y-2">
-            <li class="text-sm">📄 Invoice for assessment posted</li>
-            <li class="text-sm">✅ ARC completed for ABC Corp</li>
-        </ul>
+        <!-- Conversación 1 -->
+        <div class="grid grid-cols-[5fr_2fr_2fr_3fr] gap-x-4 items-center py-4 border-b border-base-200 text-sm">
+            <div>
+                <p class="font-medium text-base-content">Need Information on Violation</p>
+                <p class="text-base-content/60">Lorem ipsum dolor sit ame</p>
+            </div>
+            <div class="text-primary font-bold text-center">2</div>
+            <div class="relative text-center">
+                <i data-lucide="file-text" class="w-5 h-5 inline-block text-base-content/60"></i>
+                <span class="absolute -top-1 -right-2 bg-error text-white text-xs px-1.5 rounded-full">1</span>
+            </div>
+            <div>
+                <button class="btn btn-sm border-none rounded-full bg-gray-200 text-purple-400">Reply now</button>
+            </div>
+        </div>
+
+        <!-- Conversación 2 -->
+        <div class="grid grid-cols-[5fr_2fr_2fr_3fr] gap-x-4 items-center py-4 border-b border-base-200 text-sm">
+            <div>
+                <p class="font-medium text-base-content">Board Task Update</p>
+                <p class="text-base-content/60">Lorem ipsum dolor sit amet, consectetur</p>
+            </div>
+            <div class="text-primary font-bold text-center">1</div>
+            <div class="text-center">
+                <i data-lucide="file-text" class="w-5 h-5 inline-block text-base-content/60"></i>
+            </div>
+            <div>
+                <button class="btn btn-sm border-none rounded-full bg-gray-200 text-purple-400">Reply now</button>
+            </div>
+        </div>
+
+        <!-- Conversación 3 -->
+        <div class="grid grid-cols-[5fr_2fr_2fr_3fr] gap-x-4 items-center py-4 text-sm">
+            <div>
+                <p class="font-medium text-base-content">ARC Request to be followed up</p>
+                <p class="text-base-content/60">Lorem ipsum dolor sit amet, cons</p>
+            </div>
+            <div class="text-primary font-bold text-center">4</div>
+            <div class="text-center">
+                <i data-lucide="file-text" class="w-5 h-5 inline-block text-base-content/60"></i>
+            </div>
+            <div>
+                <button class="btn btn-sm border-none rounded-full bg-gray-200 text-purple-400">Reply now</button>
+            </div>
+        </div>
+
+        <!-- Ver todo -->
+        <div class="text-center mt-4">
+            <a href="" class="decoration-none font-bold text-gray-400">View all</a>
+        </div>
     </div>
 </div>

@@ -1,15 +1,55 @@
-<div class="bg-white rounded-lg shadow p-4">
+{{ todos|json_script:"todos-data" }}
+
+<div
+    x-data="{ todos: JSON.parse(document.getElementById('todos-data').textContent) }"
+    class="bg-white rounded p-4 w-full max-w-md mx-auto">
     <div class="flex justify-between items-center mb-4">
-        <h2 class="font-semibold text-gray-800">TO DO LIST</h2>
-        <button class="bg-purple-200 px-2 py-1 rounded-full text-sm">+ ADD</button>
+        <h2 class="text-sm font-semibold text-base-content">To Do List</h2>
+        <button class="btn btn-sm btn-outline text-xs rounded-full">+ Add</button>
     </div>
-    <div class="w-full h-24 flex justify-center items-center">
-        <div class="w-20 h-20 rounded-full bg-green-100 flex justify-center items-center">
-            <span class="text-green-700 font-bold text-lg">75%</span>
-        </div>
+    <div class="flex justify-center mb-4">
+        <div
+            class="radial-progress text-success"
+            style="--value:75; --size:5rem; --thickness:5px;">75%</div>
     </div>
-    <ul class="mt-4 space-y-2">
-        <li class="text-sm">📌 Prepare docs for upcoming meeting</li>
-        <li class="text-sm text-red-500">📩 Send mail to Paul Smith</li>
+
+    <!-- Sort -->
+    <div class="flex justify-end mb-2">
+        <button
+            class="flex items-center text-sm text-base-content/60 hover:text-base-content transition">
+            Sort By
+            <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+        </button>
+    </div>
+
+    <!-- Task Item -->
+    <ul class="space-y-3 text-sm">
+
+        <!-- Task loop -->
+        <template x-for="todo in todos" :key="todo.id">
+            <li class="flex items-start justify-between border-b pb-2">
+                <div class="flex items-start gap-3">
+                    <input
+                        type="checkbox"
+                        :checked="todo.completed"
+                        @click="todo.completed = !todo.completed"
+                        class="checkbox  checkbox-sm mt-1"/>
+                    <div>
+                        <p x-text="todo.title" class="font-medium"></p>
+                        <p class="text-xs text-base-content/50">Daily List</p>
+                        <p class="text-xs text-error font-semibold mt-1">DUE IN
+                            <span x-text="todo.due"></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 text-base-content/50">
+                    <i data-lucide="edit-3" class="w-4 h-4 cursor-pointer hover:text-base-content"></i>
+                    <i
+                        data-lucide="bell-off"
+                        class="w-4 h-4 text-error cursor-pointer hover:text-base-content"></i>
+                    <i data-lucide="users" class="w-4 h-4 cursor-pointer hover:text-base-content"></i>
+                </div>
+            </li>
+        </template>
     </ul>
 </div>

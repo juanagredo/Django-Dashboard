@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Dashboard</title>
+                <link
+                    href="https://cdn.jsdelivr.net/npm/daisyui@5"
+                    rel="stylesheet"
+                    type="text/css"/>
+                <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+                <script
+                    defer="defer"
+                    src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+                <script src="https://unpkg.com/lucide@latest"></script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        lucide.createIcons();
+                    });
+                </script>
+            </head>
+
+            <body>
+
+                <div x-data="{ open: false }" class="bg-gray-100 text-gray-800 font-sans">
+                    {% include 'dashboard/components/sidebar.html' %}
+
+                    <div class="md:ml-16">
+
+                        {% include 'dashboard/components/navbar.html' %}
+
+                        <main
+                            class="relative min-h-screen w-full p-4 md:p-6 bg-gray-100
+                            before:content-[''] before:absolute before:top-0 before:left-0
+                            before:w-full before:h-[70vh] before:bg-purple-500 before:z-0">
+
+                            {% block content %}{% endblock %}
+
+                        </main>
+
+                    </div>
+
+                </body>
+            </html>
